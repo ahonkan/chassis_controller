@@ -60,15 +60,26 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define PUSH_BUTTON_Pin GPIO_PIN_13
+#define PUSH_BUTTON_GPIO_Port GPIOC
 #define CONTROL_PWM_TIMEBASE_Pin GPIO_PIN_0
 #define CONTROL_PWM_TIMEBASE_GPIO_Port GPIOC
 #define CONTROL_STEERING_Pin GPIO_PIN_0
 #define CONTROL_STEERING_GPIO_Port GPIOA
 #define CONTROL_DRIVE_Pin GPIO_PIN_1
 #define CONTROL_DRIVE_GPIO_Port GPIOA
+#define LED_Pin GPIO_PIN_5
+#define LED_GPIO_Port GPIOA
 #define ENCODER_Pin GPIO_PIN_8
 #define ENCODER_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
+#define GPIO_RESET(GPIOx, GPIO_Pin) 	GPIOx->BRR = (uint32_t)GPIO_Pin
+#define GPIO_SET(GPIOx, GPIO_Pin) 	GPIOx->BSRR = (uint32_t)GPIO_Pin
+
+#define LED_SET		GPIO_SET(LED_GPIO_Port, LED_Pin)
+#define LED_RESET	GPIO_RESET(LED_GPIO_Port, LED_Pin)
+
+#define PUSH_BUTTON_STATE	HAL_GPIO_ReadPin(PUSH_BUTTON_GPIO_Port, PUSH_BUTTON_Pin)
 
 /* USER CODE END Private defines */
 
