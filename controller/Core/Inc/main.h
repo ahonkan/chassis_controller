@@ -76,10 +76,12 @@ void Error_Handler(void);
 #define GPIO_RESET(GPIOx, GPIO_Pin) 	GPIOx->BRR = (uint32_t)GPIO_Pin
 #define GPIO_SET(GPIOx, GPIO_Pin) 	GPIOx->BSRR = (uint32_t)GPIO_Pin
 
+#define CONSOLE huart2
+
 #define LED_SET		GPIO_SET(LED_GPIO_Port, LED_Pin)
 #define LED_RESET	GPIO_RESET(LED_GPIO_Port, LED_Pin)
-
 #define PUSH_BUTTON_STATE	HAL_GPIO_ReadPin(PUSH_BUTTON_GPIO_Port, PUSH_BUTTON_Pin)
+
 
 /* USER CODE END Private defines */
 
